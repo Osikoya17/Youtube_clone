@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Typography, Box } from "@mui/material";
 import { useParams } from "react-router-dom";
 
-import { fetchFromAPI } from "../utils/fetchFromAPI";
+import fetchFromApi  from "../utils/fetchFromApi";
 import { Videos } from "./";
 
 const SearchFeed = () => {
@@ -10,7 +10,7 @@ const SearchFeed = () => {
   const { searchTerm } = useParams();
 
   useEffect(() => {
-    fetchFromAPI(`search?part=snippet&q=${searchTerm}`)
+    fetchFromApi(`search?part=snippet&q=${searchTerm}`)
       .then((data) => setVideos(data.items))
   }, [searchTerm]);
 

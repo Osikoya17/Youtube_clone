@@ -5,7 +5,7 @@ import { Typography, Box, Stack } from "@mui/material";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 import { Videos, Loader } from "./";
-import { fetchFromAPI } from "../utils/fetchFromAPI";
+import fetchFromApi from "../utils/fetchFromApi";
 
 const VideoDetail = () => {
   const [videoDetail, setVideoDetail] = useState(null);
@@ -13,10 +13,10 @@ const VideoDetail = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    fetchFromAPI(`videos?part=snippet,statistics&id=${id}`)
+    fetchFromApi(`videos?part=snippet,statistics&id=${id}`)
       .then((data) => setVideoDetail(data.items[0]))
 
-    fetchFromAPI(`search?part=snippet&relatedToVideoId=${id}&type=video`)
+    fetchFromApi(`search?part=snippet&relatedToVideoId=${id}&type=video`)
       .then((data) => setVideos(data.items))
   }, [id]);
 
