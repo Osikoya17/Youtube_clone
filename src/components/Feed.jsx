@@ -8,11 +8,11 @@ const Feed = () => {
   const [videos, setVideos] = useState([]);
 
   useEffect(() => {
-    fetchFromAPI(`search?part=snippet&q=${selectedCategory}`)
+    fetchFromAPI(`search?part=snippet&q=${selectedCategory}&maxResults=21`)
       .then((data) => setVideos(data.items))
       .catch((error) => console.error('Error fetching videos:', error));
   }, [selectedCategory]);
-
+  
   return (
     <Stack direction="row" sx={{ overflowY: 'auto', height: '90vh', flexDirection: { sx: 'column', md: 'row' } }}>
       <Box sx={{ height: { sx: 'auto', md: '92vh' }, borderRight: '1px solid #3d3d3d', px: { sx: 0, md: 2 }, overflowY: 'auto' }}>

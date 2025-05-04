@@ -4,7 +4,9 @@ import { logo } from "../utils/constants";
 import { Search } from "@mui/icons-material";
 import SearchBar from "./SearchBar";
 
-const Navbar = () => {
+const Navbar = () =>{
+
+
   return (
     <Stack 
         direction="row" 
