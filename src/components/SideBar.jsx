@@ -1,31 +1,34 @@
-import { Stack, Button } from "@mui/material";
+import React from "react";
+import { Stack } from "@mui/material";
+
 import { categories } from "../utils/constants";
 
 const SideBar = ({ selectedCategory, setSelectedCategory }) => (
   <Stack
-    direction={{ xs: 'row', md: 'column' }} // Responsive direction
+    direction="row"
     sx={{
-      overflowY: 'auto',
-      height: { xs: 'auto', md: '95%' }, // Responsive height
-      gap: 1, // Add spacing between buttons
+      overflowY: "auto",
+      height: { sx: "auto", md: "95%" },
+      flexDirection: { md: "column" },
     }}
   >
     {categories.map((category) => (
-      <Button
-        key={category.name}
+      <button
+        className="category-btn"
         onClick={() => setSelectedCategory(category.name)}
-        sx={{
-          backgroundColor: category.name === selectedCategory ? '#FC1503' : 'transparent',
-          color: category.name === selectedCategory ? 'white' : 'red',
-          justifyContent: 'flex-start',
-          textTransform: 'capitalize',
-          padding: '10px 15px',
-          borderRadius: '20px',
+        style={{
+          background: category.name === selectedCategory && "#FC1503",
+          color: "white",
         }}
+        key={category.name}
       >
-        <span style={{ marginRight: '15px' }}>{category.icon}</span>
-        <span>{category.name}</span>
-      </Button>
+        <span style={{ color: category.name === selectedCategory ? "white" : "red", marginRight: "15px" }}>
+          {category.icon}
+        </span>
+        <span style={{ opacity: category.name === selectedCategory ? "1" : "0.8" }}>
+          {category.name}
+        </span>
+      </button>
     ))}
   </Stack>
 );

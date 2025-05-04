@@ -2,7 +2,7 @@ import axios from "axios";
 
 const BASE_URL = "https://youtube-v31.p.rapidapi.com";
 
-const fetchFromAPI = async (url) => {
+export const fetchFromAPI = async (url) => {
   const options = {
     headers: {
       'x-rapidapi-key': process.env.REACT_APP_RAPID_API_KEY, // Ensure this is defined
@@ -19,4 +19,3 @@ const fetchFromAPI = async (url) => {
   }
 };
 
-export default fetchFromAPI;
